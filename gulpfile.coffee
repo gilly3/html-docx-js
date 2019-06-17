@@ -74,6 +74,7 @@ buildNode = (compileCoffee = true) ->
     logger.end()
 
 gulp.task 'build-node', buildNode
+gulp.task 'rebuild-node', ['clean'], buildNode
 gulp.task 'test-node', (growl = false) ->
   buildNode(false)
   gulp.src(testsBundle, read: false).pipe mocha {reporter: 'spec', growl}
