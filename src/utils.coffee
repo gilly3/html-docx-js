@@ -11,7 +11,7 @@ module.exports =
 
   _prepareImageParts: (htmlSource) ->
     imageContentParts = []
-    inlinedSrcPattern = /"data:(\w+\/\w+);(\w+),(\S+)"/g
+    inlinedSrcPattern = /"data:([a-z\d][\w!#$&^.+-]{1,63}\/[a-z\d][\w!#$&^.+-]{1,63});(base64|[^\S()<>@,;:\\"\/\[\]?=]+),(\S+)"/ig
     # replacer function for images sources via DATA URI
     inlinedReplacer = (match, contentType, contentEncoding, encodedContent) ->
       index = imageContentParts.length
